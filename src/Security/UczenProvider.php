@@ -6,9 +6,9 @@ use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
-use App\Entity\Nauczyciel;
+use App\Entity\Uczen;
 
-class NauczycielProvider implements UserProviderInterface
+class UczenProvider implements UserProviderInterface
 {
     /**
      * Symfony calls this method if you use features like switch_user
@@ -27,8 +27,8 @@ class NauczycielProvider implements UserProviderInterface
         // The $username argument may not actually be a username:
         // it is whatever value is being returned by the getUsername()
         // method in your User class.
-        $nauczyciel = $this->getDoctrine()
-            ->getRepository(Nauczyciel::class)
+        $uczen = $this->getDoctrine()
+            ->getRepository(Uczen::class)
             ->find($username); // username will actually be email
         //throw new \Exception('TODO: fill in loadUserByUsername() inside '.__FILE__);
     }
@@ -48,12 +48,12 @@ class NauczycielProvider implements UserProviderInterface
      */
     public function refreshUser(UserInterface $user)
     {
-        if (!$user instanceof Nauczyciel) {
+        if (!$user instanceof Uczen) {
             throw new UnsupportedUserException(sprintf('Invalid user class "%s".', get_class($user)));
         }
 
-        $nauczyciel = $this->getDoctrine()
-            ->getRepository(Nauczyciel::class)
+        $uczen = $this->getDoctrine()
+            ->getRepository(Uczen::class)
             ->find($username);
 
         // Return a User object after making sure its data is "fresh".
@@ -66,6 +66,6 @@ class NauczycielProvider implements UserProviderInterface
      */
     public function supportsClass($class)
     {
-        return Nauczyciel::class === $class;
+        return Uczen::class === $class;
     }
 }
