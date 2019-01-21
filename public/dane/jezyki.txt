@@ -1,0 +1,33 @@
+C
+C++
+Objective-C
+Java
+C#
+Visual Basic
+PHP
+Python
+Java Script
+Visual Basic .NET
+Ruby
+Transact-SQL
+Perl
+F#
+J?zyk asemblera
+Lisp
+PL/SQL
+MATLAB
+Delphi/Object Pascal
+D
+Scala
+Logo
+Python
+Processing
+Prolog
+Pizza
+Oxygene
+Lua
+Julia
+Haskell
+Go
+Claire
+Ada
