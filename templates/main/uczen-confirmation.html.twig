@@ -17,6 +17,9 @@
         <li class="nav-item">
             <a class="nav-link" href="/show-grades">Sprawdź oceny</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/login">Logowanie nauczyciela</a>
+        </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Panel nauczyciela</a>
             <div class="dropdown-menu">
@@ -29,26 +32,11 @@
         </li>
     </ul>
     <div class="jumbotron">
-        <h3>Dodaj ucznia:</h3>
-        <form action="/uczen-confirmation" method="post">
-
-            <label for="firstname">Imie:</label>
-            <input type="text" id="firstname" name="firstname" class="form-control" required/>
-            <label for="lastname">Nazwisko:</label>
-            <input type="text" id="lastname" name="lastname" class="form-control" required/>
-            <label for="class">Klasa:</label>
-            <input type="text" id="class" name="class" class="form-control" required/>
-            
-            {#
-                If you want to control the URL the user
-                is redirected to on success (more details below)
-                <input type="hidden" name="_target_path" value="/account" />
-            #}
-
-            <br>
-
-            <button type="submit" class="btn btn-primary">Dodaj ucznia</button>
-        </form>
+        Dodano ucznia.
+        <br>
+        <br>
+        <br>
+        <a href="/add-student">Powrót</a>
     </div>
 </div>
 {% endblock %}
