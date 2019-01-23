@@ -24,9 +24,17 @@
                 <a class="dropdown-item" href="/add-grade">Dodaj ocenę</a>
             </div>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/login">Logowanie nauczyciela</a>
-        </li>
+        {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Logowanie nauczyciela</a>
+            </li>
+        {% endif %}
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Wyloguj</a>
+            </li>
+        {% endif %}
+        
     </ul>
     <div class="jumbotron">
         <table class="table table-striped">
@@ -36,6 +44,11 @@
                 <th scope="col">Ocena</th>
                 <th scope="col">Data</th>
                 <th scope="col">Uczeń</th>
+                <th scope="col">Klasa</th>
+                {# {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <th scope="col">Akcja</th>
+                {% endif %} #}
+                
                 </tr>
             </thead>
             <tbody>
@@ -45,6 +58,14 @@
                     <td>{{ocena.ocena}}</td>
                     <td>{{ocena.data.format("Y-m-d")}}</td>
                     <td>{{ocena.uczen.imie}} {{ocena.uczen.nazwisko}}</td>
+                    <td>{{ocena.uczen.klasa}}</td>
+                    {# {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <td>
+                        <form action="/edit-grade/{{ocena.id}}">
+                            <button type="submit" class="btn btn-primary">Edytuj</button>
+                        </form>
+                    </td>
+                    {% endif %} #}
                 </tr>
                 {% endfor %}
             </tbody>

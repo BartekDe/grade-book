@@ -36,7 +36,7 @@ security:
             form_login:
                 login_path: login
                 check_path: login
-                default_target_path: /nauczyciel-dashboard
+                default_target_path: /show-grades
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used

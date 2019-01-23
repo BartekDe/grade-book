@@ -4,6 +4,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 use App\Entity\Ocena;
 use App\Entity\Uczen;
@@ -35,16 +36,6 @@ class MainController extends AbstractController {
             'uczniowie' => $uczniowie,
         ]);
     }
-
-
-
-
-
-
-
-
-
-
 
     /**
     * @Route("/ocena-confirmation", name="ocena-confirmation")
@@ -82,16 +73,6 @@ class MainController extends AbstractController {
             'uczen' => $uczenObj,
         ]);
     }
-
-
-
-
-
-
-
-
-
-
 
     /**
     * @Route("/add-student", name="add-student")
@@ -145,6 +126,28 @@ class MainController extends AbstractController {
             'oceny' => $oceny,
             ]);
     }
+
+    // /**
+    // * @Route("/edit-grade/{$id}", name="edit-grade")
+    // */
+    // public function editGrade($id) {
+    //     $ocena = $this->getDoctrine()
+    //     ->getRepository(Ocena::class)
+    //     ->find($id);
+
+    //     if (!$ocena) {
+    //         throw $this->createNotFoundException(
+    //             'No ocena found for id '.$id
+    //         );
+    //     }
+
+    //     return new Response('Check out this great ocena: '.$ocena->getOcena());
+
+    //     // return $this->render('main/edit-grade.html.twig', [
+    //     //     'controller_name' => 'MainController',
+    //     //     'oceny' => $oceny,
+    //     //     ]);
+    // }
 
     function generateRandomString($length = 10) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
