@@ -4,6 +4,11 @@
 
 {% block stylesheets %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<style>
+    .btn {
+        margin: 2px;
+    }
+</style>
 {% endblock %}
 
 {% block body %}
@@ -45,9 +50,9 @@
                 <th scope="col">Data</th>
                 <th scope="col">Uczeń</th>
                 <th scope="col">Klasa</th>
-                {# {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     <th scope="col">Akcja</th>
-                {% endif %} #}
+                {% endif %}
                 
                 </tr>
             </thead>
@@ -59,13 +64,16 @@
                     <td>{{ocena.data.format("Y-m-d")}}</td>
                     <td>{{ocena.uczen.imie}} {{ocena.uczen.nazwisko}}</td>
                     <td>{{ocena.uczen.klasa}}</td>
-                    {# {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <td>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <td class="buttons">
                         <form action="/edit-grade/{{ocena.id}}">
                             <button type="submit" class="btn btn-primary">Edytuj</button>
                         </form>
+                        <form action="/delete-grade/{{ocena.id}}">
+                            <button type="submit" class="btn btn-danger">Usuń</button>
+                        </form>
                     </td>
-                    {% endif %} #}
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>

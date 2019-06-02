@@ -22,22 +22,6 @@ class MainController extends AbstractController {
     }
 
     /**
-    * @Route("/add-grade", name="add-grade")
-    */
-    public function showGradeForm() {
-        $this->denyAccessUnlessGranted('ROLE_TEACHER');
-
-        // add a variable containing all students to choose from while adding a grade
-        $entityManager = $this->getDoctrine()->getManager();
-        $uczniowie = $entityManager->getRepository(Uczen::class)->findAll();
-
-        return $this->render('main/add-grade.html.twig', [
-            'controller_name' => 'MainController',
-            'uczniowie' => $uczniowie,
-        ]);
-    }
-
-    /**
     * @Route("/ocena-confirmation", name="ocena-confirmation")
     */
     public function showConfirmationAfterAddNewGrade() {
@@ -114,40 +98,7 @@ class MainController extends AbstractController {
         ]);
     }
 
-    /**
-    * @Route("/show-grades", name="show-grades")
-    */
-    public function showGrades() {
-        $entityManager = $this->getDoctrine()->getManager();
-        $oceny = $entityManager->getRepository(Ocena::class)->findAll();
 
-        return $this->render('main/show-grades.html.twig', [
-            'controller_name' => 'MainController',
-            'oceny' => $oceny,
-            ]);
-    }
-
-    // /**
-    // * @Route("/edit-grade/{$id}", name="edit-grade")
-    // */
-    // public function editGrade($id) {
-    //     $ocena = $this->getDoctrine()
-    //     ->getRepository(Ocena::class)
-    //     ->find($id);
-
-    //     if (!$ocena) {
-    //         throw $this->createNotFoundException(
-    //             'No ocena found for id '.$id
-    //         );
-    //     }
-
-    //     return new Response('Check out this great ocena: '.$ocena->getOcena());
-
-    //     // return $this->render('main/edit-grade.html.twig', [
-    //     //     'controller_name' => 'MainController',
-    //     //     'oceny' => $oceny,
-    //     //     ]);
-    // }
 
     function generateRandomString($length = 10) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

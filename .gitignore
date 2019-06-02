@@ -11,3 +11,17 @@
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+.vs
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+\.idea/
